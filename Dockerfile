@@ -3,7 +3,7 @@ FROM frolvlad/alpine-bash
 
 LABEL org.opencontainers.image.source="https://github.com/scholz/aml-container"
 
-COPY "imagemagick-convert" imagemagick-convert
+COPY "aml-npu-sdk" aml-npu-sdk
 
 ENTRYPOINT /bin/bash
 

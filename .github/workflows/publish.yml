@@ -18,9 +18,7 @@ jobs:
 
     - name: Build the hello-world Docker image
       run: |
-        #git clone --recursive https://github.com/khadas/aml_npu_sdk.git
-        # start w sth small
-        git clone https://github.com/izonder/imagemagick-convert.git
+        git clone --recursive https://github.com/khadas/aml_npu_sdk.git
         ls  -al
         du -sh .
         docker build . --tag ghcr.io/scholz/aml-container:latest
