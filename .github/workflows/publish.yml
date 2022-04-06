@@ -19,7 +19,9 @@ jobs:
     - name: Build the hello-world Docker image
       run: |
         git clone --recursive https://github.com/khadas/aml_npu_sdk.git
-        docker build . --tag ghcr.io/jonashackt/hello-world:latest
+        ls  -al
+        du -sh .
+        #docker build . --tag ghcr.io/jonashackt/hello-world:latest
         #docker run ghcr.io/jonashackt/hello-world:latest
         #docker push ghcr.io/jonashackt/hello-world:latest
 
