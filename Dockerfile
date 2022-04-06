@@ -3,7 +3,7 @@ FROM frolvlad/alpine-bash
 
 LABEL org.opencontainers.image.source="https://github.com/scholz/aml-container"
 
-COPY --from=0 "imagemagick-convert" imagemagick-convert
+COPY "imagemagick-convert" imagemagick-convert
 
 ENTRYPOINT /bin/bash
 
