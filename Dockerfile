@@ -15,7 +15,7 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8' TERM=screen
 
 LABEL org.opencontainers.image.source="https://github.com/scholz/aml-container"
 
-ADD ./aml_npu_sdk/acuity-toolkit  /acuity-toolkit
+ADD ./acuity-toolkit  /acuity-toolkit
 
 RUN pip3 install -r /acuity-toolkit/requirements.txt
 
