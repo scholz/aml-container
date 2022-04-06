@@ -1,5 +1,5 @@
-FROM ubuntu:18.04
-RUN dpkg --add-architecture i386
+FROM ubuntu:20.04
+#RUN dpkg --add-architecture i386
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && \
 	DEBIAN_FRONTEND=noninteractive apt-get install -y sudo git dialog lsb-release binutils wget ca-certificates device-tree-compiler \
 	pv bc lzop zip binfmt-support build-essential ccache debootstrap ntpdate gawk gcc-arm-linux-gnueabihf \
@@ -17,7 +17,7 @@ LABEL org.opencontainers.image.source="https://github.com/scholz/aml-container"
 
 ADD ./acuity-toolkit  /acuity-toolkit
 
-RUN pip3 install -r /acuity-toolkit/requirements.txt
+#RUN pip3 install -r /acuity-toolkit/requirements.txt
 
 WORKDIR /acuity-toolkit
 ENTRYPOINT [ "/bin/bash" ]
