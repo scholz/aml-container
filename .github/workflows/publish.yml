@@ -16,15 +16,15 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build the hello-world Docker image
+    - name: Build the aml-container image
       run: |
         # init project; don't use recursive to save space
         git clone --depth 1 https://github.com/khadas/aml_npu_sdk.git
         rm -rf aml_npu_sdk/.git
-        git clone --depth 1 --branch ksnn_convert https://gitlab.com/khadas/neural_network_large_file.git aml_npu_sdk/python/
-        rm -rf aml_npu_sdk/python/.git
-        git clone --depth 1 --branch aml_npu_convert_tool https://gitlab.com/khadas/neural_network_large_file.git aml_npu_sdk/bin/
-        rm -rf aml_npu_sdk/bin/.git
+        git clone --depth 1 --branch ksnn_convert https://gitlab.com/khadas/neural_network_large_file.git aml_npu_sdk/acuity-toolkit/python/
+        rm -rf aml_npu_sdk/acuity-toolkit/python/.git
+        git clone --depth 1 --branch aml_npu_convert_tool https://gitlab.com/khadas/neural_network_large_file.git aml_npu_sdk/acuity-toolkit/bin/
+        rm -rf aml_npu_sdk/acuity-toolkit/bin/.git
 
         ls  -al
         du -sh .
