@@ -25,7 +25,9 @@ jobs:
         rm -rf aml_npu_sdk/acuity-toolkit/python/.git
         git clone --depth 1 --branch aml_npu_convert_tool https://gitlab.com/khadas/neural_network_large_file.git aml_npu_sdk/acuity-toolkit/bin/
         rm -rf aml_npu_sdk/acuity-toolkit/bin/.git
-
+        du -sh .
+        mv aml_npu_sdk/acuity-toolkit ./
+        rm -rf aml_npu_sdk
         ls  -al
         du -sh .
         docker build . --tag ghcr.io/scholz/aml-container:latest
