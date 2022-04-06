@@ -9,7 +9,7 @@ RUN go build hello-world.go
 # We use a Docker multi-stage build here in order that we only take the compiled go executable
 FROM alpine:3.14
 
-LABEL org.opencontainers.image.source="https://github.com/jonashackt/docker-hello-world"
+LABEL org.opencontainers.image.source="https://github.com/scholz/docker-hello-world"
 
 COPY --from=0 "/go/src/app/hello-world" hello-world
 
