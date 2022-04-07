@@ -18,18 +18,22 @@ jobs:
 
     - name: Build the aml-container image
       run: |
+        du -sh
         # init project; don't use recursive to save space
-        git clone --depth 1 https://github.com/khadas/aml_npu_sdk.git
+        git clone --depth 1 --single-branch --branch master --shallow-submodules --recursive https://github.com/khadas/aml_npu_sdk.git
+        #git clone --depth 1 https://github.com/khadas/aml_npu_sdk.git
         rm -rf aml_npu_sdk/.git
-        git clone --depth 1 --branch ksnn_convert https://gitlab.com/khadas/neural_network_large_file.git aml_npu_sdk/acuity-toolkit/python/
+        #git clone --depth 1 --branch ksnn_convert https://gitlab.com/khadas/neural_network_large_file.git aml_npu_sdk/acuity-toolkit/python/
         rm -rf aml_npu_sdk/acuity-toolkit/python/.git
-        git clone --depth 1 --branch aml_npu_convert_tool https://gitlab.com/khadas/neural_network_large_file.git aml_npu_sdk/acuity-toolkit/bin/
+        #git clone --depth 1 --branch aml_npu_convert_tool https://gitlab.com/khadas/neural_network_large_file.git aml_npu_sdk/acuity-toolkit/bin/
         rm -rf aml_npu_sdk/acuity-toolkit/bin/.git
         du -sh .
         mv aml_npu_sdk/acuity-toolkit ./
         rm -rf aml_npu_sdk
         ls  -al
         du -sh .
-        docker build . --tag ghcr.io/scholz/aml-container:latest
-        docker push ghcr.io/scholz/aml-container:latest
+        source version
+        echo "VERSION: $VERSION"
+        docker build . --tag ghcr.io/scholz/aml-container:$VERSION --tag ghcr.io/scholz/aml-container:latest
+        docker push ghcr.io/scholz/aml-container --all-tags
 
